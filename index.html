@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Farm Overlay</title>
+
+<style>
+body {
+  margin: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(8px);
+  color: #00ff88;
+  font-family: Consolas, monospace;
+  text-align: center;
+  user-select: none;
+  -webkit-app-region: drag;
+}
+
+.container {
+  padding: 15px;
+}
+
+#timer {
+  font-size: 38px;
+  font-weight: bold;
+  text-shadow: 0 0 10px #00ff88;
+}
+
+.alarm {
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { text-shadow: 0 0 5px #00ff88; }
+  50% { text-shadow: 0 0 25px #00ff88; }
+  100% { text-shadow: 0 0 5px #00ff88; }
+}
+
+#status {
+  font-size: 13px;
+  margin-top: 5px;
+  color: #00ffaa;
+}
+
+.buttons {
+  margin-top: 10px;
+  -webkit-app-region: no-drag;
+}
+
+button {
+  background: #001a0f;
+  border: 1px solid #00ff88;
+  color: #00ff88;
+  padding: 5px 12px;
+  margin: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background: #003d26;
+  box-shadow: 0 0 10px #00ff88;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div id="timer">00:00</div>
+  <div id="status">IDLE</div>
+
+  <div class="buttons">
+    <button onclick="start()">START</button>
+    <button onclick="stop()">STOP</button>
+    <button onclick="toggleLock()" id="lockBtn">🔓</button>
+  </div>
+</div>
+
+<script src="renderer.js"></script>
+</body>
+</html>
